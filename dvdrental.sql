@@ -16,6 +16,9 @@ WHERE ci.city = 'Haldia';
 -- right inner join 
 -- full inner join 
 
+SELECT * FROM customer; 
+
+commit; 
 
 
 

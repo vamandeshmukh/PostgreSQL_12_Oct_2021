@@ -242,8 +242,6 @@ delete from deps where did = 40;
 insert into deps values (40, 'Sec', 'Pune');
 insert into emps values (106, 'Lonu', null);
 
-
-
 -- load sample database 
 -- https://www.postgresqltutorial.com/postgresql-sample-database/
 
@@ -262,4 +260,15 @@ RIGHT JOIN deps d ON e.did = d.did;
 -- full (inner) join - matching and non-matching records from both the tables 
 SELECT * FROM emps e
 FULL JOIN deps d ON e.did = d.did;
+
+-- subquery - outer-query <operator> (sub-query)
+
+SELECT * FROM  emp;
+Which employees have salary nore than the average salary?
+SELECT AVG(salary) FROM emp;
+SELECT ename, salary from emp where salary > 43270;
+
+-- subquery 
+SELECT ename, salary from emp where salary > (SELECT AVG(salary) FROM emp);
+
 
