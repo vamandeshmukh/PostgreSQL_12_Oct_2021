@@ -107,6 +107,8 @@ INSERT INTO customer_data
 	VALUES ('Monu', '10-Oct-2020', 'Abids Hyderabad 500001');
 
 -- constraints / integrity constraints 
+-- primary key constrint 
+-- https://www.postgresqltutorial.com/postgresql-primary-key/
 
 CREATE TABLE customer 
 	 (customer_id INT PRIMARY KEY, customer_name VARCHAR(40)); 
@@ -127,6 +129,5 @@ INSERT INTO customer VALUES (NULL, 'Sonu');
 -- SQL state: 23502
 
 COMMIT; 
-
 
 
