@@ -133,4 +133,19 @@ INSERT INTO customer VALUES (NULL, 'Sonu');
 COMMIT; 
 SELECT * FROM customer; 
 
+fk_cust (cust_id INT PRIMARY KEY, cust_name varchar(40) aadhaar INT UNIQUE NOT NULL);
+
+-- foreign key constrint 
+-- https://www.postgresqltutorial.com/postgresql-foreign-key/
+
+CREATE TABLE deps (did INT PRIMARY KEY, dname VARCHAR(10), city VARCHAR(10));
+SELECT * FROM deps;
+CREATE TABLE emps (eid INT PRIMARY KEY, ename VARCHAR(10), did INT REFERENCES deps(did));
+SELECT * FROM emps;
+
+
+
+
+
+
 
