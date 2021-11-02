@@ -187,4 +187,31 @@ COMMIT;
 -- ON UPDATE SET NULL
 -- ON UPDATE CASCADE
 
+-- JOIN 
+
+SELECT * FROM emps;
+SELECT * FROM deps;
+
+-- In which dept does Sonu work? 
+-- In which city does Sonu work? 
+-- answer - JOIN 
+
+SELECT * FROM emps, deps;
+SELECT * FROM emps, deps WHERE ename = 'Sonu';
+
+-- JOIN QUERY 
+SELECT ename, dname 
+FROM emps
+JOIN deps ON emps.did = deps.did 
+WHERE ename = 'Sonu';
+
+
+
+
+
+
+
+
+
+
 
