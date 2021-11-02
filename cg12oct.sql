@@ -234,11 +234,32 @@ FROM emps e
 JOIN deps d ON e.did = d.did 
 WHERE e.ename = 'Sonu';
 
+SELECT * FROM emps;
+SELECT * FROM deps;
+COMMIT; 
+delete from deps where did = 40;
+
+insert into deps values (40, 'Sec', 'Pune');
+insert into emps values (106, 'Lonu', null);
+
+
+
 -- load sample database 
 -- https://www.postgresqltutorial.com/postgresql-sample-database/
 
+-- inner join - only matching records 
+SELECT * FROM emps e
+JOIN deps d ON e.did = d.did;
 
+-- left (inner) join - matching records, and non-matching records from left table 
+SELECT * FROM emps e
+LEFT JOIN deps d ON e.did = d.did;
 
+-- right (inner) join - - matching records, and non-matching records from right table 
+SELECT * FROM emps e
+RIGHT JOIN deps d ON e.did = d.did;
 
-
+-- full (inner) join - matching and non-matching records from both the tables 
+SELECT * FROM emps e
+FULL JOIN deps d ON e.did = d.did;
 
