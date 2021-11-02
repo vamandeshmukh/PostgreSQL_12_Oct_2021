@@ -117,6 +117,8 @@ SELECT * FROM customer;
 
 INSERT INTO customer VALUES (101, 'Sonu');
 INSERT INTO customer VALUES (102, 'Monu');
+COMMIT; 
+
 -- try - 
 INSERT INTO customer VALUES (101, 'Sonu');
 -- ERROR:  duplicate key value violates unique constraint "customer_pkey"
@@ -129,5 +131,6 @@ INSERT INTO customer VALUES (NULL, 'Sonu');
 -- SQL state: 23502
 
 COMMIT; 
+SELECT * FROM customer; 
 
 
