@@ -205,10 +205,37 @@ FROM emps
 JOIN deps ON emps.did = deps.did 
 WHERE ename = 'Sonu';
 
+COMMIT; 
 
+-- try - 
+SELECT ename, dname, did  
+FROM emps
+JOIN deps ON emps.did = deps.did 
+WHERE ename = 'Sonu';
+-- ERROR:  column reference "did" is ambiguous
+-- LINE 1: SELECT ename, dname, did  
+--                             ^
+-- SQL state: 42702
+-- Character: 22
 
+SELECT ename, emps.did, dname
+FROM emps
+JOIN deps ON emps.did = deps.did 
+WHERE ename = 'Sonu';
 
+SELECT emps.ename, emps.did, deps.dname
+FROM emps
+JOIN deps ON emps.did = deps.did 
+WHERE emps.ename = 'Sonu';
 
+-- query optimizaiton using table aliases 
+SELECT e.ename, e.did, d.dname
+FROM emps e
+JOIN deps d ON e.did = d.did 
+WHERE e.ename = 'Sonu';
+
+-- load sample database 
+-- https://www.postgresqltutorial.com/postgresql-sample-database/
 
 
 
