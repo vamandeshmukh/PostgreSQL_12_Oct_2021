@@ -170,7 +170,21 @@ COMMIT;
 SELECT * FROM deps;
 SELECT * FROM emps;
 
+-- Review and learn other constraints 
+-- https://www.postgresqltutorial.com/postgresql-not-null-constraint/
+-- https://www.postgresqltutorial.com/postgresql-unique-constraint/
 
+-- on delete pk-fk options 
+DELETE FROM deps WHERE DID = 20;
+-- ERROR:  update or delete on table "deps" violates foreign key constraint "emps_did_fkey" on table "emps"
+-- DETAIL:  Key (did)=(20) is still referenced from table "emps".
+-- SQL state: 23503
+COMMIT; 
 
+-- try and learn -  
+-- ON DELETE SET NULL
+-- ON DELETE CASCADE
+-- ON UPDATE SET NULL
+-- ON UPDATE CASCADE
 
 
