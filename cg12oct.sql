@@ -142,8 +142,33 @@ CREATE TABLE deps (did INT PRIMARY KEY, dname VARCHAR(10), city VARCHAR(10));
 SELECT * FROM deps;
 CREATE TABLE emps (eid INT PRIMARY KEY, ename VARCHAR(10), did INT REFERENCES deps(did));
 SELECT * FROM emps;
+COMMIT; 
 
+INSERT INTO deps VALUES (10, 'HR', 'Hyd');
+INSERT INTO deps VALUES (20, 'Admin', 'Blr');
+INSERT INTO deps VALUES (30, 'MKTG', 'Che');
+COMMIT; 
 
+INSERT INTO emps VALUES (101, 'Sonu', 10);
+INSERT INTO emps VALUES (102, 'Monu', 10);
+INSERT INTO emps VALUES (103, 'Tonu', 20);
+INSERT INTO emps VALUES (104, 'Ponu', 30);
+INSERT INTO emps VALUES (105, 'Gonu', 30);
+COMMIT; 
+
+SELECT * FROM deps;
+SELECT * FROM emps;
+
+-- try 
+INSERT INTO emps VALUES (106, 'Lonu', 40);
+-- ERROR:  insert or update on table "emps" violates foreign key constraint "emps_did_fkey"
+-- DETAIL:  Key (did)=(40) is not present in table "deps".
+-- SQL state: 23503
+
+COMMIT; 
+
+SELECT * FROM deps;
+SELECT * FROM emps;
 
 
 
