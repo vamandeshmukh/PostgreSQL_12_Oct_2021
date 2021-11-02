@@ -106,13 +106,27 @@ INSERT INTO customer_data
 	(customer_name, joining_date, address) 
 	VALUES ('Monu', '10-Oct-2020', 'Abids Hyderabad 500001');
 
--- constraints 
+-- constraints / integrity constraints 
 
 CREATE TABLE customer 
-	 (customer_id INT, 
-	 customer_name VARCHAR(40), 
-	 joining_date DATE, 
-	 address VARCHAR(255));
+	 (customer_id INT PRIMARY KEY, customer_name VARCHAR(40)); 
+
+SELECT * FROM customer; 
+
+INSERT INTO customer VALUES (101, 'Sonu');
+INSERT INTO customer VALUES (102, 'Monu');
+-- try - 
+INSERT INTO customer VALUES (101, 'Sonu');
+-- ERROR:  duplicate key value violates unique constraint "customer_pkey"
+-- DETAIL:  Key (customer_id)=(101) already exists.
+-- SQL state: 23505
+
+INSERT INTO customer VALUES (NULL, 'Sonu');
+-- ERROR:  null value in column "customer_id" violates not-null constraint
+-- DETAIL:  Failing row contains (null, Sonu).
+-- SQL state: 23502
+
+COMMIT; 
 
 
 
